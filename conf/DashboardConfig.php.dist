@@ -1,0 +1,5 @@
+<?php
+
+$config = new stdClass();
+$config->host = 'graphite.domain';
+
