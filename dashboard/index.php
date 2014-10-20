@@ -8,6 +8,14 @@ $intervals = array(
 	'-7days'   => 'Derniers 7 jours',
 );
 
+$targets = array(
+	'temp.couloir',
+	'temp.salon',
+	'temp.chambre',
+);
+
+$targetQueryString = 'target='.implode('&target=', $targets);
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -19,8 +27,8 @@ $intervals = array(
 <?php
 foreach ($intervals as $param => $label) {
 	echo "<h3>$label</h3>\n";
-	echo '<img src="http://'.$config->host.'/render/?width=400&height=300&tz=Europe%2FParis&minXStep=3&from='.$param.'&target=temp.couloir&target=temp.salon" />';
-	echo '<img src="http://'.$config->host.'/render/?width=400&height=300&tz=Europe%2FParis&minXStep=3&from='.$param.'&target=temp.couloir&target=temp.salon&target=ws.myweather.temp" />';
+	echo '<img src="http://'.$config->host.'/render/?width=400&height=300&tz=Europe%2FParis&minXStep=3&from='.$param.'&'.$targetQueryString.'" />';
+	echo '<img src="http://'.$config->host.'/render/?width=400&height=300&tz=Europe%2FParis&minXStep=3&from='.$param.'&'.$targetQueryString.'&target=ws.myweather.temp" />';
 }
 ?>
 </body>
