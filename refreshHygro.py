@@ -4,14 +4,16 @@ import subprocess
 import re
 import sys
 import time
+import os
 
 attempts = 0
+cwd = os.path.dirname(os.path.realpath(__file__))
 
 # Continuously append data
 while(attempts < 10):
 	# Run the DHT program to get the humidity and temperature readings!
 	attempts += 1
-	output = subprocess.check_output(["./bin/Adafruit_DHT", "2302", "4"]);
+	output = subprocess.check_output([cwd + "/bin/Adafruit_DHT", "2302", "4"]);
 
 	#matches = re.search("Temp =\s+([0-9.]+)", output)
 	#if (not matches):
@@ -32,5 +34,5 @@ while(attempts < 10):
 
 	sys.exit()
 
-print "Failed"
+#print "Failed"
 
