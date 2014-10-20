@@ -14,7 +14,7 @@ $targets = array(
 	'temp.chambre',
 );
 
-$targetQueryString = 'target='.implode('&target=', $targets);
+$targetQueryString = 'target='.implode('&target=', $targets).'&target=secondYAxis(hygro.salon)';
 
 ?>
 <!DOCTYPE html>
