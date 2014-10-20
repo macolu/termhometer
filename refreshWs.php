@@ -14,10 +14,15 @@ $res = curl_exec($c);
 
 if ($res === false) {
 	// curl failed
-	throw new Exception(sprintf('curl failed: %s', curl_error($c)));
+	//throw new Exception(sprintf('curl failed: %s', curl_error($c)));
+	exit;
 }
 
 $data = json_decode($res);
+
+if (empty($data)) {
+	exit;
+}
 
 $date = time();
 $metrics = array();
